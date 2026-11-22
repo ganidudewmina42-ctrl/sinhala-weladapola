@@ -2,5 +2,5 @@
 // Do NOT put service_role keys in browser files.
 window.WELADAPOLA_CONFIG = {
   SUPABASE_URL: "https://ybouqwjjcgnvooebrbzj.supabase.co",
-  SUPABASE_ANON_KEY: "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE"
+  SUPABASE_ANON_KEY: "sb_publishable_Ukq0nt12tbYqOOBDYe1Tkg_y9cIXLaZ"
 };
