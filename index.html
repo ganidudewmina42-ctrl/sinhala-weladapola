@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Weladapola | සිංහල වෙළඳපොළ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<div class="topline"><div class="container topinner"><span>🚚 දේශීය වෙළඳපොළ · Cash on Delivery</span><span>☎ 074 328 9012 · 🇱🇰 Sri Lanka</span></div></div>
+<header class="header"><div class="container nav">
+<a class="brand" href="#home"><span class="leaf">🌿</span><span><b>Weladapola</b><small>Buy · Sell · Grow Together</small></span></a>
+<button class="menuBtn" id="menuBtn" aria-label="Menu">☰</button>
+<nav id="navLinks"><a href="#home">Home</a><a href="#products">Products</a><a href="#categories">Categories</a><a href="#seller">Sell with us</a><a href="#about">About</a></nav>
+<div class="navbuttons"><button class="cartBtn" id="cartBtn">🛒 <span id="cartCount">0</span></button><button class="btn outline" id="sellerBtn">Seller Login</button><button class="btn dark" id="adminBtn">Admin</button></div>
+</div></header>
+<main>
+<section class="hero container" id="home"><div class="heroText"><div class="eyebrow"><i></i> ශ්‍රී ලංකාවේ online වෙළඳපොළ</div><h1>සිංහල <span>වෙළඳපොළ</span></h1><h2>“ඔබේ අවශ්‍යතාවයට, අපෙන් විශ්වාසයෙන්...”</h2><p>දේශීය වෙළෙන්දන්ගෙන් භාණ්ඩ තෝරන්න. පහසු මිලට, විශ්වාසයෙන්, ඔබේ doorstep එකට.</p><div class="benefits"><span>✓ ආරක්ෂිත ගනුදෙනු</span><span>🚚 ඉක්මන් සේවය</span><span>🤝 විශ්වාසය</span></div><a class="btn yellow" href="#products">🛒 දැන් Shopping කරන්න ↗</a></div>
+<div class="heroArt"><div class="heroImg"></div><div class="artSticker">🌱<small>LOCAL<br>FINDS</small></div><div class="heroNote">✨ Buy local<br><b>Support Sri Lanka</b></div></div></section>
+<section class="categories container" id="categories"><div class="catScroll">
+<button class="category active" data-cat="All"><span>🟩</span> සියල්ල</button><button class="category" data-cat="Fashion"><span>👕</span> ඇඳුම්</button><button class="category" data-cat="Electronics"><span>📱</span> විදුලි උපකරණ</button><button class="category" data-cat="Home"><span>🏠</span> ගෘහ භාණ්ඩ</button><button class="category" data-cat="Beauty"><span>🧴</span> සෞඛ්‍ය</button><button class="category" data-cat="Food"><span>🥥</span> ආහාර</button><button class="category" data-cat="Other"><span>🎁</span> වෙනත්</button></div></section>
+<section class="products container" id="products"><div class="sectionHead"><div><div class="eyebrow">FEATURED PRODUCTS</div><h2>නවතම භාණ්ඩ</h2></div><div class="search"><span>⌕</span><input id="searchInput" placeholder="භාණ්ඩ සොයන්න..."><button id="clearSearch">×</button></div></div><div id="productGrid" class="grid"><div class="loading">භාණ්ඩ load වෙමින්...</div></div><p class="empty" id="empty" hidden>භාණ්ඩ හමු වුණේ නැහැ.</p></section>
+<section class="sellerPromo container" id="seller"><div class="promoIcon">🛍️<span>✨</span></div><div><div class="eyebrow">GROW YOUR BUSINESS</div><h2>ඔබත් වෙළෙන්දෙක්ද?</h2><p>Seller account එකක් හදාගෙන ඔබේ භාණ්ඩ, photos, මිල සහ විස්තර පාරිභෝගිකයන්ට පෙන්වන්න.</p><button class="btn yellow" id="sellerJoin">Seller account එකක් හදන්න ↗</button></div></section>
+<section class="trust container" id="about"><div><span>🔒</span><b>විශ්වාසයෙන්</b><small>Seller accounts</small></div><div><span>🚚</span><b>Delivery</b><small>දිවයින පුරා</small></div><div><span>💵</span><b>Cash on Delivery</b><small>භාණ්ඩ ලැබුණු පසු</small></div><div><span>🇱🇰</span><b>දේශීය වෙළඳාම</b><small>ශ්‍රී ලාංකික sellers</small></div></section>
+</main>
+<footer><div class="container foot"><a class="brand" href="#"><span class="leaf">🌿</span><span><b>Weladapola</b><small>Buy · Sell · Grow Together</small></span></a><p>දේශීය වෙළඳාමට ඩිජිටල් වේදිකාවක්.</p><small>© <span id="year"></span> Weladapola</small></div></footer>
+<a class="whatsapp" href="https://wa.me/94743289012" target="_blank" rel="noopener" title="WhatsApp support">✆</a>
+<div id="modal" class="modal"><div class="modalBox"><button class="close" id="closeModal">×</button><div id="modalBody"></div></div></div><div class="toast" id="toast"></div>
+<script src="config.js"></script><script src="app.js"></script>
+</body></html>
