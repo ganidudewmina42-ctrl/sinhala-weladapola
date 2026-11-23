@@ -98,9 +98,24 @@ async function adminDashboard(tab="overview"){
  }else if(tab==="orders"){
   const {data,error}=await sb.from("orders").select("*").order("created_at",{ascending:false});
   if(error){root.innerHTML=`<h3>Orders error</h3><p>${esc(error.message)}</p>`;return}
-  root.innerHTML=`<h3>Orders (${(data||[]).length})</h3>${(data||[]).map(o=>`<div class="ordercard"><b>${esc(o.product_name||"Order")} · ${money(Number(o.unit_price||0)*Number(o.quantity||1))}</b><p>👤 ${esc(o.buyer_name||o.customer_name||"")} · ☎ ${esc(o.buyer_phone||o.phone||"")}</p><p>📍 ${esc(o.town||o.city||"")} · ${esc(o.village||"")} · ${esc(o.province||"")}</p><p>${esc(o.address||"")} · Qty: ${esc(o.quantity||1)} · ${esc(o.payment_method||"COD")}</p><label>Status <select class="statusSelect" data-status="${o.id}">${["Pending","Processing","Shipped","Delivered","Cancelled"].map(st=>`<option ${o.status===st?"selected":""}>${st}</option>`).join("")}</select></label></div>`).join("")||"<p>No orders yet.</p>"}`;
-  $$("#adminContent [data-status]").forEach(sel=>sel.onchange=async()=>{const {error}=await sb.from("orders").update({status:sel.value}).eq("id",sel.dataset.status);if(error){notify(error.message);return}notify("Order status updated")});
- }
+
+  root.innerHTML=`<h3>Orders (${(data||[]).length})</h3>${(data||[]).map(o=>`<div class="ordercard"><b>${esc(o.product_name||"Order")} · ${money(Number(o.unit_price||0)*Number(o.quantity||1))}</b><p>👤 ${esc(o.buyer_name||o.customer_name||"")} · ☎ ${esc(o.buyer_phone||o.phone||"")}</p><p>📍 ${esc(o.town||o.city||"")} · ${esc(o.village||"")} · ${esc(o.province||"")}</p><p>${esc(o.address||"")} · Qty: ${esc(o.quantity||1)} · ${esc(o.payment_method||"COD")}</p><label>Status <select class="statusSelect" data-status="${o.id}">${["Pending","Processing","Shipped","Delivered","Cancelled"].map(st=>`<option ${o.status===st?"selected":""}>${st}</option>`).join("")}</select></label> <button class="delete" data-delete-order="${o.id}">Delete Order</button></div>`).join("")||"<p>No orders yet.</p>"}`;
+
+  $$("#adminContent [data-status]").forEach(sel=>sel.onchange=async()=>{
+    const {error}=await sb.from("orders").update({status:sel.value}).eq("id",sel.dataset.status);
+    if(error){notify(error.message);return}
+    notify("Order status updated");
+  });
+
+  $$("#adminContent [data-delete-order]").forEach(btn=>btn.onclick=async()=>{
+    if(!confirm("මේ Order එක ස්ථිරවම Delete කරන්නද? නැවත ලබාගන්න බැහැ."))return;
+    btn.disabled=true;
+    const {error}=await sb.from("orders").delete().eq("id",btn.dataset.deleteOrder);
+    if(error){notify("Delete failed: "+error.message);btn.disabled=false;return}
+    notify("Order deleted successfully");
+    adminDashboard("orders");
+  });
+}
 }
 function init(){
  $("#year").textContent=new Date().getFullYear();refreshCartCount();
