@@ -1,14 +1,1 @@
-{
-  "background_color": "#ffffff",
-  "dir": "ltr",
-  "display": "standalone",
-  "name": "Weladapola - සිංහල වෙළඳපොළ",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "weladapola",
-  "start_url": "/",
-  "theme_color": "#ffffff",
-  "description": "Sri Lankan online marketplace to buy and sell products easily.",
-  "id": "weladapola-marketplace",
-  "lang": "si"
-}
+
